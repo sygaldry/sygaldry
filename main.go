@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/smallfish/simpleyaml"
 )
 
 /*
@@ -44,8 +47,33 @@ func main() {
 		}
 
 		fmt.Printf("Attempting to run the %s step in %s\n", runeArg, fileArg)
+		parseYaml(fileArg, runeArg)
 		os.Exit(1)
 	}
+}
+
+func parseYaml(fileArg string, runeArg string) {
+	source, err := ioutil.ReadFile(fileArg)
+	if err != nil {
+		panic(err)
+	}
+
+	yaml, err := simpleyaml.NewYaml(source)
+	if err != nil {
+		panic(err)
+	}
+
+	yam, err := yaml.Get(runeArg).Map()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Value: %#v\n", yam)
+
+	// keys, err := yaml.Get(runeArg).GetMapKeys()
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Printf("Value: %#v\n", keys)
 }
 
 func suggestHelp(cliArg string) {
