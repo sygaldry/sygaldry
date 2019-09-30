@@ -5,6 +5,11 @@
 go build -o sygaldry
 ```
 
+## Dependencies
+```bash
+go get -u -v github.com/smallfish/simpleyaml
+```
+
 ## Using the CLI
 ```bash
 sygaldry build -f mySygaldryYamlFile.yaml
