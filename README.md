@@ -5,7 +5,9 @@
 sygaldry build -f mySygaldryYamlFile.yaml
 ```
 
-## YAML formatting
+## YAML
+
+### Formatting
 ```yaml
 build:
   SpringbootMavenBuild:
@@ -22,6 +24,20 @@ publish:
     registryUrl: https://docker.io
     dockerUsername: hodor
     dockerPassword: h0dor
+```
+
+### Anatomy
+The following is a valid Sygaldry YAML file:
+```yaml
+creamcheese:
+  DockerPublish:
+    registryUrl: https://docker.io
+    dockerUsername: testuser
+    dockerPassword: dumbPassw0rd!
+```
+Assuming the name of this file is `myDockerPublish.yaml` we can run the following command without error:
+```bash
+sygaldry creamcheese -f myDockerPublish.yaml
 ```
 
 ## FAQ
