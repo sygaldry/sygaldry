@@ -1,5 +1,10 @@
 # sygaldry
 
+## Building Sygaldry
+```bash
+go build -o sygaldry
+```
+
 ## Using the CLI
 ```bash
 sygaldry build -f mySygaldryYamlFile.yaml
