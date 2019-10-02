@@ -52,6 +52,7 @@ func main() {
 	}
 }
 
+// This can certainly be done better and be split up a bunch more but it's a start!
 func parseYaml(fileArg string, runeArg string) {
 	source, err := ioutil.ReadFile(fileArg)
 	if err != nil {
@@ -69,20 +70,40 @@ func parseYaml(fileArg string, runeArg string) {
 	}
 	fmt.Printf("Value: %#v\n", yam)
 
-	// keys, err := yaml.Get(runeArg).GetMapKeys()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Printf("Value: %#v\n", keys)
+	runeMap := yaml.Get(runeArg)
+	runeKeys, err := runeMap.GetMapKeys()
+	if err != nil {
+		panic(err)
+	}
+	mainRune := runeKeys[0]
+	fmt.Printf("\nTargeting rune: %s\n", mainRune)
+
+	argMap := runeMap.Get(mainRune)
+	argKeys, err := argMap.GetMapKeys()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("\nPushing params:")
+	for _, key := range argKeys {
+		val, err := argMap.Get(key).String()
+		if err != nil {
+			panic(err)
+		}
+		fmt.Printf("    %s:\t%s\n", key, val)
+	}
+	fmt.Println("")
 }
 
+// We can suggest help but there's not much there yet.
 func suggestHelp(cliArg string) {
 	fmt.Printf("%s: missing operand after `%s'\n", cliArg, cliArg)
 	fmt.Printf("%s: Try `%s --help' for more information.\n", cliArg, cliArg)
 	os.Exit(1)
 }
 
+// There's not much help to really be had here...
 func printHelp(cliArg string) {
-	fmt.Println("Here's some help, bro!")
+	fmt.Println("Here's some help, bro! <3")
 	os.Exit(1)
 }
