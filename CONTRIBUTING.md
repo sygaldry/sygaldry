@@ -118,3 +118,6 @@ All Go must adhere to [Golang Standard Code Organization](https://golang.org/doc
 # Returns `undefined`.
 disablePackage: (name, options, callback) ->
 ```
+
+[beginner]:https://github.com/search?q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Asygaldry+sort%3Acomments-desc
+[help-wanted]:https://github.com/search?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+user%3Asygaldry+sort%3Acomments-desc+-label%3Abeginner
