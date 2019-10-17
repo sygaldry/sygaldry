@@ -6,7 +6,7 @@ require (
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pelletier/go-toml v1.4.0 // indirect
-	github.com/smallfish/simpleyaml v0.0.0-20170911015856-a32031077861 // indirect
+	github.com/smallfish/simpleyaml v0.0.0-20170911015856-a32031077861
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
