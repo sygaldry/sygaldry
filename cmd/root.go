@@ -39,7 +39,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		file := cmd.Flag("file")
 
-		if !strings.HasSuffix(file.Value.String(), ".yaml") {
+		if !strings.HasSuffix(file.Value.String(), ".yaml") || !strings.HasSuffix(file.Value.String(), ".yml") {
 			fmt.Printf("Your runes file should be a yaml.")
 		} else if len(args) == 1 && strings.HasSuffix(file.Value.String(), ".yaml") {
 			parseYaml(args[0], file.Value.String())
@@ -99,8 +99,8 @@ func initConfig() {
 	}
 }
 
-func parseYaml(stepArgument string, runeYamlArgument string) {
-	source, err := ioutil.ReadFile(runeYamlArgument)
+func parseYaml(stage string, runeYaml string) {
+	source, err := ioutil.ReadFile(runeYaml)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -110,15 +110,15 @@ func parseYaml(stepArgument string, runeYamlArgument string) {
 		log.Fatalln("2", err)
 	}
 
-	runeStep := yaml.Get(stepArgument)
-	runeKeys, err := runeStep.GetMapKeys()
+	rune := yaml.Get(stage)
+	runeKeys, err := rune.GetMapKeys()
 	if err != nil {
 		log.Fatalln("Step does not exist in provided rune yaml.")
 	}
 	mainRune := runeKeys[0]
 	fmt.Printf("\nTargeting rune: %s\n", mainRune)
 
-	argMap := runeStep.Get(mainRune)
+	argMap := rune.Get(mainRune)
 	argKeys, err := argMap.GetMapKeys()
 	if err != nil {
 		log.Fatalln(err)
