@@ -37,7 +37,16 @@ var rootCmd = &cobra.Command{
 		if !strings.HasSuffix(file.Value.String(), ".yaml") && !strings.HasSuffix(file.Value.String(), ".yml") {
 			fmt.Printf("Your runes file should be a yaml.")
 		} else if len(args) == 1 {
-			stage.GetStage(file.Value.String(), args[0])
+			stageRunes, getStageErr := stage.GetStage(file.Value.String(), args[0])
+			if getStageErr != nil {
+				panic(getStageErr)
+			}
+			for _, stageRune := range stageRunes {
+				stageRuneRunErr := stageRune.Run()
+				if stageRuneRunErr != nil {
+					panic(stageRuneRunErr)
+				}
+			}
 		} else {
 			fmt.Println("Usage: sygaldry <step name> -f <rune yaml file>")
 		}
