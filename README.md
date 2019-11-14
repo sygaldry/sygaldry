@@ -1,53 +1,64 @@
 # sygaldry
 
-## Building Sygaldry
-```bash
-go build -o sygaldry
-```
-
 ## Dependencies
 ```bash
-go get -u -v github.com/smallfish/simpleyaml
+go mod download
+```
+
+## Building Sygaldry
+```bash
+go test ./...
 ```
 
 ## Using the CLI
 ```bash
-sygaldry build -f mySygaldryYamlFile.yaml
+sygaldry build -f runes.yaml
 ```
 
 ## YAML
 
 ### Formatting
 ```yaml
-build:
-  SpringbootMavenBuild:
-    mavenHome: ~/.m2
-  DockerBuild:
-    dockerfilePath: docker/Dockerfile
-    name: hodor/myKewlApp
-publish:
-  SpringbootMavenDeploy:
-    nexusUrl: https://www.nexus.com
-    nexusUsername: hodor
-    nexusPassword: h0dor
-  DockerPublish:
-    registryUrl: https://docker.io
-    dockerUsername: hodor
-    dockerPassword: h0dor
+stages:
+  build:
+  - definition: MavenRune
+    mavenome: ~/.m2
+    stages: clean install
+    version: 3.5.0-jdk-8-slim
+  - definition: DockerRune
+    version: stable
+    command: build
+    args: "-t docker.io/sygaldrydemos/springboot:v0.0.2 ."
+  publish:
+  - definition: DockerRune
+    version: stable
+    command: push
+    dockerConfigPath: ~/.docker/config-sygaldry.json
+    args: "docker.io/sygaldrydemos/springboot:v0.0.2"
+  deploy:
+  - definition: KubectlRune
+    command: apply
+    version: stable
+    args: -f k8s-configs/demo.yaml
+definitions:
+- "https://raw.githubusercontent.com/sygaldry/sygaldry-runes/feature/writeRuneDefsFile/rune-definitions.yaml"
 ```
 
 ### Anatomy
 The following is a valid Sygaldry YAML file:
 ```yaml
-creamcheese:
-  DockerPublish:
-    registryUrl: https://docker.io
-    dockerUsername: testuser
-    dockerPassword: dumbPassw0rd!
+stages:
+  creamcheese:
+  - definition: DockerRune
+    version: stable
+    command: build
+    args: "-t docker.io/sygaldrydemos/springboot:v0.0.2 ."
+definitions:
+- "https://raw.githubusercontent.com/sygaldry/sygaldry-runes/master/rune-definitions.yaml"
 ```
-Assuming the name of this file is `myDockerPublish.yaml` we can run the following command without error:
+Assuming the name of this file is `myDockerBuild.yaml` we can run the following command without error:
 ```bash
-sygaldry creamcheese -f myDockerPublish.yaml
+sygaldry creamcheese -f myDockerBuild.yaml
 ```
 
 ## FAQ
