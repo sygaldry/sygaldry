@@ -41,7 +41,7 @@ stages:
     version: stable
     args: -f k8s-configs/demo.yaml
 definitions:
-- "https://raw.githubusercontent.com/sygaldry/sygaldry-runes/feature/writeRuneDefsFile/rune-definitions.yaml"
+- "https://raw.githubusercontent.com/sygaldry/sygaldry-runes/master/rune-definitions.yaml"
 ```
 
 ### Anatomy
