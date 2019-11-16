@@ -52,6 +52,14 @@ github.com/sygaldry/sygaldry-core v0.0.5 h1:JKFQ0Adp8m4ox2ysCdoK4wDRSw0DI4W9HzST
 github.com/sygaldry/sygaldry-core v0.0.5/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
 github.com/sygaldry/sygaldry-core v0.0.6 h1:55Ub0+voNH9D4ZHGyjra8geJuLqdBV3VH4xHQq1YcZI=
 github.com/sygaldry/sygaldry-core v0.0.6/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
+github.com/sygaldry/sygaldry-core v0.0.7 h1:w4XsSSElNEg9UZfnIK+PrRvzZyC+UbnSdxgNi2Em/H8=
+github.com/sygaldry/sygaldry-core v0.0.7/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
+github.com/sygaldry/sygaldry-core v0.0.9 h1:NKwyJQ1F3JOlROZqifQg22Oz59Ax30P9kIxAKoMciMM=
+github.com/sygaldry/sygaldry-core v0.0.9/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
+github.com/sygaldry/sygaldry-core v0.0.10 h1:ya6ClcqL/0BcwjNvbZc9MFv/fBsH343CIby+mbYunlo=
+github.com/sygaldry/sygaldry-core v0.0.10/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
+github.com/sygaldry/sygaldry-core v0.0.11 h1:rn6XpVqEn9ffJXGRVSidzqFPyI1pQzO5tt0AsvBQtSk=
+github.com/sygaldry/sygaldry-core v0.0.11/go.mod h1:tiCCfH0yo98wHY8Om26N074oVXf0RTbcqAuDqA8qLqM=
 github.com/ugorji/go/codec v0.0.0-20181204163529-d75b2dcb6bc8/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
 github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77/go.mod h1:aYKd//L2LvnjZzWKhF00oedf4jCCReLcmhLdhm1A27Q=
 golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
